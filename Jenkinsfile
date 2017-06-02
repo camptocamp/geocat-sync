@@ -14,6 +14,7 @@ dockerBuild {
         passwordVariable: 'GIT_PASSWORD'
     )]) {
         sh("""
+            rm -rf geocat.git
             git clone --mirror https://github.com/geoadmin/geocat.git
             cd geocat.git
             git branch -a
