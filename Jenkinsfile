@@ -15,9 +15,10 @@ dockerBuild {
     )]) {
         sh("""
             echo 'protocol=https\nhost=github.com/camptocamp/geocat.git\nusername=${GIT_USERNAME}\npassword=${GIT_PASSWORD}\n\n' | git credential approve
-            git remote add geoadmin https://github.com/geoadmin/geocat.git
+            git submodule add https://github.com/geoadmin/geocat.git geocat
+            cd geocat
+            git fetch
             git remote add c2c https://github.com/camptocamp/geocat.git
-            git fetch geoadmin
             git push --mirror c2c
         """)
     }

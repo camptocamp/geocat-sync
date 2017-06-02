@@ -1,0 +1,3 @@
+[submodule "geocat"]
+	path = geocat
+	url = https://github.com/geoadmin/geocat.git
