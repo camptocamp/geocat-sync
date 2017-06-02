@@ -11,7 +11,7 @@
     fetch = +refs/tags/*:refs/tags/*
     fetch = +refs/change/*:refs/change/*
     mirror = true
-[remote "mirrors"]
+[remote "c2c"]
     url = https://github.com/camptocamp/geocat.git
     mirror = true
     skipDefaultUpdate = true

@@ -19,7 +19,7 @@ dockerBuild {
             cp -f gitconfig geocat.git/config
             cd geocat.git
             git fetch --all
-            git config -e
+            git config -l
             git push --mirror https://\$GIT_USERNAME:\$GIT_PASSWORD@github.com/camptocamp/geocat.git
         """)
     }
