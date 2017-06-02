@@ -15,7 +15,9 @@ dockerBuild {
     )]) {
         sh("""
             echo 'protocol=https\nhost=github.com/camptocamp/geocat.git\nusername=${GIT_USERNAME}\npassword=${GIT_PASSWORD}\n\n' | git credential approve
-            git submodule add https://github.com/geoadmin/geocat.git geocat
+            if \$(git submodule | grep geocat -n -qv);then
+                git submodule add https://github.com/geoadmin/geocat.git geocat
+            fi
             git submodule update --init
             cd geocat
             git fetch
