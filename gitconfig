@@ -9,6 +9,7 @@
     url = https://github.com/geoadmin/geocat.git
     fetch = +refs/heads/*:refs/heads/*
     fetch = +refs/tags/*:refs/tags/*
+    fetch = +refs/change/*:refs/change/*
     mirror = true
 [remote "mirrors"]
     url = https://github.com/camptocamp/geocat.git
