@@ -20,10 +20,10 @@ dockerBuild {
             git submodule update --init
             cd geocat
             git branch -a
-            git remote update
+            git fetch --all
             git remote remove c2c
             git remote add c2c https://\$GIT_USERNAME:\$GIT_PASSWORD@github.com/camptocamp/geocat.git
-            git push --mirror c2c
+            git push c2c --all
         """)
     }
 }
