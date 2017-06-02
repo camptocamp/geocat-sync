@@ -14,13 +14,13 @@ dockerBuild {
         passwordVariable: 'GIT_PASSWORD'
     )]) {
         sh("""
-            if \$(git submodule | grep geocat -n -qv);then
+            if \$(git submodule | grep -qv geocat);then
                 git submodule add https://github.com/geoadmin/geocat.git geocat
             fi
             git submodule update --init
             cd geocat
             git fetch
-            if \$(git remote -v | grep c2c -n -qv);then
+            if \$(git remote -v | grep -qv c2c);then
                 git remote add c2c \$GIT_USERNAME:\$GIT_PASSWORD@https://github.com/camptocamp/geocat.git
             fi
             git push --mirror c2c
