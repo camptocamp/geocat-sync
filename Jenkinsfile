@@ -20,6 +20,7 @@ dockerBuild {
             cd geocat.git
             git config remote.c2c.url https://\$GIT_USERNAME:\$GIT_PASSWORD@github.com/camptocamp/geocat.git
             git remote update geoadmin
+            set +e
             git push c2c
         """)
     }
