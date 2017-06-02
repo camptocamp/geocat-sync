@@ -18,9 +18,9 @@ dockerBuild {
             git clone --mirror https://github.com/geoadmin/geocat.git
             cp -f gitconfig geocat.git/config
             cd geocat.git
+            git config remote.c2c.url https://\$GIT_USERNAME:\$GIT_PASSWORD@github.com/camptocamp/geocat.git
             git remote update geoadmin
             git push c2c
-            #git push --mirror https://\$GIT_USERNAME:\$GIT_PASSWORD@github.com/camptocamp/geocat.git
         """)
     }
 }
