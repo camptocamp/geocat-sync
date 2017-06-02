@@ -19,7 +19,7 @@ dockerBuild {
             cd geocat
             git fetch
             git ls-remote --exit-code c2c
-            if \$(test $? != 0); then
+            if \$(test \$? != 0); then
                 git remote add c2c https://github.com/camptocamp/geocat.git
             fi
             git push --mirror c2c
