@@ -5,7 +5,7 @@
 
 dockerBuild {
     checkout scm
-    setCronTrigger(*/10 * * * *')
+    setCronTrigger('*/10 * * * *')
     stage 'syncronize geocat'
     sh 'git remote add geoadmin https://github.com/geoadmin/geocat.git'
     sh 'git fetch geoadmin'
