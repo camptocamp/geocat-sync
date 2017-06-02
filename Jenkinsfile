@@ -18,9 +18,7 @@ dockerBuild {
             cd geocat.git
             git branch -a
             git fetch --all
-            git remote remove c2c
-            git remote add c2c https://\$GIT_USERNAME:\$GIT_PASSWORD@github.com/camptocamp/geocat.git
-            git push c2c --mirror
+            git push --mirror https://\$GIT_USERNAME:\$GIT_PASSWORD@github.com/camptocamp/geocat.git
         """)
     }
 }
