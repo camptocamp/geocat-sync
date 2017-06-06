@@ -5,7 +5,7 @@
 
 dockerBuild {
     checkout scm
-    setCronTrigger('*/10 * * * *')
+    setCronTrigger('*/30 * * * *')
     stage 'syncronize geocat'
 
     withCredentials([usernamePassword(
