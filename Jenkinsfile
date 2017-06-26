@@ -4,9 +4,10 @@
 @Library('c2c-pipeline-library') import static com.camptocamp.utils.*
 
 dockerBuild {
-    checkout scm
     setCronTrigger('*/30 * * * *')
+
     stage 'syncronize geocat'
+    checkout scm
 
     withCredentials([usernamePassword(
         credentialsId: 'c2c-sig-ci-token',
