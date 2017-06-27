@@ -4,7 +4,7 @@
 @Library('c2c-pipeline-library') import static com.camptocamp.utils.*
 
 dockerBuild {
-    setCronTrigger('0 */4 * * *')
+    setCronTrigger('H */4 * * *')
 
     stage 'syncronize geocat'
     checkout scm
