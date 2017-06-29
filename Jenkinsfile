@@ -5,28 +5,30 @@
 
 dockerBuild {
 
-    stage 'syncronize geocat'
-    checkout scm
+    stage('syncronize geocat') {
+        checkout scm
 
-    withCredentials([usernamePassword(
-        credentialsId: 'c2c-sig-ci-token',
-        usernameVariable: 'GIT_USERNAME',
-        passwordVariable: 'GIT_PASSWORD'
-    )]) {
-        sh("""
-            rm -rf geocat.git
-            git clone --mirror https://github.com/geoadmin/geocat.git
-            cp -f gitconfig geocat.git/config
-            cd geocat.git
-            git config remote.c2c.url https://\$GIT_USERNAME:\$GIT_PASSWORD@github.com/camptocamp/geocat.git
-            git remote update geoadmin
-            git push c2c || true
-        """)
+        withCredentials([usernamePassword(
+            credentialsId: 'c2c-sig-ci-token',
+            usernameVariable: 'GIT_USERNAME',
+            passwordVariable: 'GIT_PASSWORD'
+        )]) {
+            sh("""
+                rm -rf geocat.git
+                git clone --mirror https://github.com/geoadmin/geocat.git
+                cp -f gitconfig geocat.git/config
+                cd geocat.git
+                git config remote.c2c.url https://\$GIT_USERNAME:\$GIT_PASSWORD@github.com/camptocamp/geocat.git
+                git remote update geoadmin
+                git push c2c || true
+            """)
+        }
     }
 
-    stage 'set cron trigger every 4 hours'
-    //setCronTrigger('H */4 * * *')
-    // set every 10 minutes for debug porposes
-    setCronTrigger('*/10 * * * *')
+    stage('set cron trigger every 4 hours') {
+        //setCronTrigger('H */4 * * *')
+        // set every 10 minutes for debug porposes
+        setCronTrigger('*/10 * * * *')
+    }
 }
 
