@@ -27,6 +27,6 @@ dockerBuild {
     stage 'set cron trigger every 4 hours'
     //setCronTrigger('H */4 * * *')
     // set every 10 minutes for debug porposes
-    setCronTrigger('H */4 * * *')
+    setCronTrigger('*/10 * * * *')
 }
 
