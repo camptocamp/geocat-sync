@@ -27,8 +27,8 @@ dockerBuild {
 
     stage('set cron trigger every 4 hours') {
         checkout scm
-        // set triiger every 4 hours
-        setCronTrigger('H */4 * * *')
+        // set triiger every 2 hours
+        setCronTrigger('H */2 * * *')
     }
 }
 
