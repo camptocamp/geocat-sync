@@ -4,7 +4,6 @@
 @Library('c2c-pipeline-library') import static com.camptocamp.utils.*
 
 dockerBuild {
-    setCronTrigger('H */4 * * *')
 
     stage 'syncronize geocat'
     checkout scm
@@ -24,5 +23,10 @@ dockerBuild {
             git push c2c || true
         """)
     }
+
+    stage 'set cron trigger every 4 hours'
+    //setCronTrigger('H */4 * * *')
+    // set every 10 minutes for debug porposes
+    setCronTrigger('H */4 * * *')
 }
 
